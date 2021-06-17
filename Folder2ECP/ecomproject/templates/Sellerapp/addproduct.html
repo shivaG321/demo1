@@ -1,0 +1,16 @@
+{% extends 'Sellerapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+        <title>Add Products</title>
+{% endblock %}
+{% block content %}
+        <center>
+        <form method="post" class="jumbotron" style="width: 500px; margin-lef:20px;">
+                <h1>{{btn_name}}</h1>
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Add Product" class="btn btn-success">
+                <a href="{% url 'showprod' %}">Already Added?</a>
+        </form>
+        </center>
+{% endblock %}

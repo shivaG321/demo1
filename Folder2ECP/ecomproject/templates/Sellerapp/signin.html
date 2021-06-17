@@ -1,0 +1,22 @@
+{% extends 'Sellerapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+<title xmlns="http://www.w3.org/1999/html">SIGN IN</title>
+{% endblock %}
+{% block content %}
+   <center>
+  <form method="post" class="jumbotron" style="width: 455px; margin-left: 26px;">
+
+        <h1>SIGN IN</h1>
+        {% csrf_token %}<br>
+        Enter UserName:
+        <input type="text" name="un"><br><br>
+        Enter Password:
+        <input type="password" name="pw"><br><br>
+        {% for msg in messages %}
+            <h5 style="color: red;">{{msg}}</h5>
+        {% endfor %}<br>
+        <input type="submit" value="Sign in" class="btn btn-success">
+   </center>
+    </form>
+{% endblock %}

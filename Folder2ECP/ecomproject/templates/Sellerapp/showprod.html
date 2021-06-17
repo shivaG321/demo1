@@ -1,0 +1,53 @@
+{% extends 'Sellerapp/base.html' %}
+{% block title %}
+<title>All Products</title>
+{% endblock %}
+
+{% block content %}
+    <table class= "table table-dark" >
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Payment</th>
+            <th>Seller</th>
+            <th>Status</th>
+        </tr>
+        {% for prod in prods %}
+        <tr>
+            <td>{{prod.id}}</td>
+            <th>{{prod.pname}}</th>
+            <td>{{prod.pcat}}</td>
+            <td>{{prod.pqty}}</td>
+            <td>{{prod.pprice}}</td>
+            <td>{{prod.ppayment}}</td>
+            <td>{{prod.pseller}}</td>
+            <td>{{prod.pstatus}}</td>
+
+              <td>
+              <a href="{% url 'updteprod' prod.id %}" >
+                  <button class="btn btn-btn=warning">
+                      Update
+                  </button>
+              </a>
+              </td>
+
+              <td>
+                  <a href="{% url 'deltprod' prod.id %}">
+                      <button class = "btn btn-danger">
+                      Delete
+                      </button>
+                  </a>
+              </td>
+        </tr>
+
+        {% endfor %}
+    </table><br>
+                <a href="{% url 'addproduct' %}">
+                    <button class="btn btn-primary">
+                        Add More Products
+                    </button>
+                </a>
+{% endblock %}

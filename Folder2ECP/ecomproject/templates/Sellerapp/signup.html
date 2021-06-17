@@ -1,0 +1,15 @@
+{% extends 'Sellerapp/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+    <title>SIGN UP</title>
+{% endblock %}
+{% block content %}
+    <center>
+    <form method="post" class="jumbotron" style="width:700px; margin-left:24px;">
+        <h1>Signup Up</h1>
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="submit" value="Sign Up" class="btn btn-success">
+    </form>
+    </center>
+{% endblock %}
